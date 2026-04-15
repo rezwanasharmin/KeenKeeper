@@ -1,0 +1,178 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Phone, MessageSquare, Video, Bell, Archive, Trash2 } from 'lucide-react';
+import friendsData from '../data/friends.json';
+import { useTimeline } from '../context/useTimeline';
+import Toast from '../components/Toast';
+
+const FriendDetail = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { addInteraction } = useTimeline();
+
+  const friend = useMemo(() => {
+    const friendId = parseInt(id, 10);
+    return friendsData.find((f) => f.id === friendId) || null;
+  }, [id]);
+
+  const [toast, setToast] = useState(null);
+
+  useEffect(() => {
+    if (!friend) {
+      navigate('/404'); // Redirect to 404 if friend not found
+    }
+  }, [friend, navigate]);
+
+  // Handle Quick Check-In buttons
+  const handleQuickCheckIn = (type) => {
+    if (!friend) return;
+
+    // Add to global timeline count (for Stats page)
+    addInteraction(type, friend.name);
+
+    // Show toast notification
+    setToast(`${type} logged successfully with ${friend.name}`);
+
+    // Auto hide toast after 3 seconds
+    setTimeout(() => {
+      setToast(null);
+    }, 3000);
+  };
+
+  // Loading state
+  if (!friend) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-emerald-200 border-t-emerald-600 rounded-full animate-spin mx-auto"></div>
+          <p className="mt-6 text-gray-500">Loading friend details...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Status color logic
+  const getStatusColor = (status) => {
+    if (status === 'overdue') return 'bg-red-500';
+    if (status === 'almost due') return 'bg-amber-500';
+    return 'bg-emerald-600';
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-10 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+          {/* ==================== LEFT COLUMN - Profile Info ==================== */}
+          <div className="lg:col-span-4 space-y-6">
+
+            {/* Profile Card */}
+            <div className="bg-white rounded-3xl p-5 shadow-sm text-center">
+              <img 
+                src={friend.picture} 
+                alt={friend.name}
+                className="w-40 h-40 rounded-full mx-auto mb-6 border-8 border-white shadow-md object-cover"
+              />
+              <h2 className="text-3xl font-semibold text-gray-900 mb-2">{friend.name}</h2>
+              
+              <div className="flex justify-center gap-3 mb-6">
+                <span className={`${getStatusColor(friend.status)} text-white text-sm font-medium px-6 py-1.5 rounded-full`}>
+                  {friend.status.toUpperCase().replace('-', ' ')}
+                </span>
+              </div>
+
+              <p className="text-gray-600 italic mb-6 px-4">"{friend.bio}"</p>
+              <p className="text-gray-500 text-sm">{friend.email}</p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="bg-white rounded-3xl p-2 shadow-sm ">
+              <button className="w-full flex items-center gap-4 px-6 py-3 text-left hover:bg-gray-50 rounded-2xl transition-colors">
+                <Bell size={22} className="text-gray-500" />
+                <span className="font-medium text-gray-700">Snooze 2 Weeks</span>
+              </button>
+              <button className="w-full flex items-center gap-4 px-6 py-5 text-left hover:bg-gray-50 rounded-2xl transition-colors">
+                <Archive size={22} className="text-gray-500" />
+                <span className="font-medium text-gray-700">Archive</span>
+              </button>
+              <button className="w-full flex items-center gap-4 px-6 py-5 text-red-600 hover:bg-red-50 rounded-2xl transition-colors">
+                <Trash2 size={22} />
+                <span className="font-medium">Delete</span>
+              </button>
+            </div>
+          </div>
+
+          {/* ==================== RIGHT COLUMN - Content ==================== */}
+          <div className="lg:col-span-8 space-y-8">
+
+            {/* Stats Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
+                <div className="text-4xl font-semibold text-gray-900">{friend.days_since_contact}</div>
+                <p className="text-gray-500 mt-3">Days Since Contact</p>
+              </div>
+              <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
+                <div className="text-4xl font-semibold text-gray-900">{friend.goal}</div>
+                <p className="text-gray-500 mt-3">Goal (Days)</p>
+              </div>
+              <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
+                <div className="text-3xl font-semibold text-gray-900">{friend.next_due_date}</div>
+                <p className="text-gray-500 mt-3">Next Due</p>
+              </div>
+            </div>
+
+            {/* Relationship Goal */}
+            <div className="bg-white rounded-3xl p-8 shadow-sm flex justify-between items-center">
+              <div>
+                <h3 className="text-xl font-semibold mb-1">Relationship Goal</h3>
+                <p className="text-gray-600">
+                  Connect every <span className="font-semibold">{friend.goal} days</span>
+                </p>
+              </div>
+              <button className="border border-gray-300 hover:bg-gray-50 px-6 py-3 rounded-2xl text-sm font-medium transition-colors">
+                Edit
+              </button>
+            </div>
+
+            {/* Quick Check-In */}
+            <div className="bg-white rounded-3xl p-8 shadow-sm">
+              <h3 className="text-xl font-semibold mb-8">Quick Check-In</h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <button 
+                  onClick={() => handleQuickCheckIn('Call')}
+                  className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
+                >
+                  <Phone size={42} className="text-emerald-600" />
+                  <span className="font-semibold text-lg">Call</span>
+                </button>
+
+                <button 
+                  onClick={() => handleQuickCheckIn('Text')}
+                  className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
+                >
+                  <MessageSquare size={42} className="text-emerald-600" />
+                  <span className="font-semibold text-lg">Text</span>
+                </button>
+
+                <button 
+                  onClick={() => handleQuickCheckIn('Video')}
+                  className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
+                >
+                  <Video size={42} className="text-emerald-600" />
+                  <span className="font-semibold text-lg">Video</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Toast Notification */}
+      {toast && <Toast message={toast} />}
+    </div>
+  );
+};
+
+export default FriendDetail;

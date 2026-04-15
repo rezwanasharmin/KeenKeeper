@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Emma Wilson",
+    "picture": "https://i.pravatar.cc/300?u=emma",
+    "email": "emma.wilson@email.com",
+    "days_since_contact": 62,
+    "status": "overdue",
+    "tags": ["family", "mentor"],
+    "bio": "Former colleague and great mentor. We bonded over career advice and long coffee chats.",
+    "goal": 30,
+    "next_due_date": "2026-02-27"
+  },
+  {
+    "id": 2,
+    "name": "David Kim",
+    "picture": "https://i.pravatar.cc/300?u=david",
+    "email": "david.kim@email.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["work", "hiking"],
+    "bio": "Colleague from marketing team. We love weekend hikes and discussing tech trends.",
+    "goal": 14,
+    "next_due_date": "2026-04-20"
+  },
+  {
+    "id": 3,
+    "name": "Lisa Nakamura",
+    "picture": "https://i.pravatar.cc/300?u=lisa",
+    "email": "lisa.nakamura@email.com",
+    "days_since_contact": 8,
+    "status": "on-track",
+    "tags": ["college", "close friend"],
+    "bio": "Best friend from university days. We still share book recommendations and life updates.",
+    "goal": 21,
+    "next_due_date": "2026-05-05"
+  },
+  {
+    "id": 4,
+    "name": "James Wright",
+    "picture": "https://i.pravatar.cc/300?u=james",
+    "email": "james.wright@email.com",
+    "days_since_contact": 45,
+    "status": "overdue",
+    "tags": ["hobby", "travel"],
+    "bio": "Travel buddy from last year's Europe trip. Always up for planning the next adventure.",
+    "goal": 30,
+    "next_due_date": "2026-03-15"
+  },
+  {
+    "id": 5,
+    "name": "Aisha Patel",
+    "picture": "https://i.pravatar.cc/300?u=aisha",
+    "email": "aisha.patel@email.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["work", "yoga"],
+    "bio": "Yoga partner and team lead. We motivate each other both at work and on the mat.",
+    "goal": 10,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 6,
+    "name": "Marcus Johnson",
+    "picture": "https://i.pravatar.cc/300?u=marcus",
+    "email": "marcus.j@email.com",
+    "days_since_contact": 19,
+    "status": "almost due",
+    "tags": ["family", "music"],
+    "bio": "Cousin and guitar enthusiast. We jam together whenever we get the chance.",
+    "goal": 25,
+    "next_due_date": "2026-04-25"
+  },
+  {
+    "id": 7,
+    "name": "Olivia Martinez",
+    "picture": "https://i.pravatar.cc/300?u=olivia",
+    "email": "olivia.m@email.com",
+    "days_since_contact": 35,
+    "status": "overdue",
+    "tags": ["college", "art"],
+    "bio": "Art school friend. We still visit galleries and critique each other's creative work.",
+    "goal": 30,
+    "next_due_date": "2026-03-10"
+  },
+  {
+    "id": 8,
+    "name": "Sarah Chen",
+    "picture": "https://i.pravatar.cc/300?u=sarah",
+    "email": "sarah.chen@email.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["work", "foodie"],
+    "bio": "Office teammate and food explorer. We try new restaurants every month.",
+    "goal": 14,
+    "next_due_date": "2026-04-22"
+  }
+]
