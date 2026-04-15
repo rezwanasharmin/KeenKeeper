@@ -14,7 +14,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="text-2xl font-bold "><img src={logo} alt="" /></div>
 
-          {/* Desktop Navigation */}
+          
           <div className="hidden md:flex items-center gap-8">
             
             {/* Home */}
@@ -32,7 +32,7 @@ const Navbar = () => {
               Home
             </NavLink>
 
-            {/* Timeline - Green box when active */}
+            
             <NavLink
               to="/timeline"
               className={({ isActive }) =>
@@ -47,7 +47,7 @@ const Navbar = () => {
               Timeline
             </NavLink>
 
-            {/* Stats - Green box when active */}
+           
             <NavLink
               to="/stats"
               className={({ isActive }) =>
@@ -63,7 +63,7 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          {/* Mobile Hamburger */}
+          
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-xl hover:bg-gray-100"
@@ -76,14 +76,14 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t bg-white py-6 px-4">
             <div className="flex items-center justify-between mb-8">
-              <div className="text-2xl font-bold text-emerald-600">KeenKeeper</div>
+              <div className="text-2xl font-bold text-emerald-700">KeenKeeper</div>
               <button onClick={() => setIsMenuOpen(false)}>
                 <X size={28} />
               </button>
             </div>
 
             <div className="space-y-2">
-              {/* Home */}
+              
               <NavLink
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
