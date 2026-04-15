@@ -19,27 +19,27 @@ const FriendDetail = () => {
 
   useEffect(() => {
     if (!friend) {
-      navigate('/404'); // Redirect to 404 if friend not found
+      navigate('/404'); 
     }
   }, [friend, navigate]);
 
-  // Handle Quick Check-In buttons
+  
   const handleQuickCheckIn = (type) => {
     if (!friend) return;
 
-    // Add to global timeline count (for Stats page)
+    
     addInteraction(type, friend.name);
 
-    // Show toast notification
+    
     setToast(`${type} logged successfully with ${friend.name}`);
 
-    // Auto hide toast after 3 seconds
+    
     setTimeout(() => {
       setToast(null);
     }, 3000);
   };
 
-  // Loading state
+  
   if (!friend) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -51,7 +51,7 @@ const FriendDetail = () => {
     );
   }
 
-  // Status color logic
+  
   const getStatusColor = (status) => {
     if (status === 'overdue') return 'bg-red-500';
     if (status === 'almost due') return 'bg-amber-500';
@@ -63,10 +63,10 @@ const FriendDetail = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-          {/* ==================== LEFT COLUMN - Profile Info ==================== */}
+          
           <div className="lg:col-span-4 space-y-6">
 
-            {/* Profile Card */}
+            
             <div className="bg-white rounded-3xl p-5 shadow-sm text-center">
               <img 
                 src={friend.picture} 
@@ -85,7 +85,7 @@ const FriendDetail = () => {
               <p className="text-gray-500 text-sm">{friend.email}</p>
             </div>
 
-            {/* Action Buttons */}
+            
             <div className="bg-white rounded-3xl p-2 shadow-sm ">
               <button className="w-full flex items-center gap-4 px-6 py-3 text-left hover:bg-gray-50 rounded-2xl transition-colors">
                 <Bell size={22} className="text-gray-500" />
@@ -102,10 +102,10 @@ const FriendDetail = () => {
             </div>
           </div>
 
-          {/* ==================== RIGHT COLUMN - Content ==================== */}
+          
           <div className="lg:col-span-8 space-y-8">
 
-            {/* Stats Row */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
                 <div className="text-4xl font-semibold text-gray-900">{friend.days_since_contact}</div>
@@ -121,7 +121,7 @@ const FriendDetail = () => {
               </div>
             </div>
 
-            {/* Relationship Goal */}
+            
             <div className="bg-white rounded-3xl p-8 shadow-sm flex justify-between items-center">
               <div>
                 <h3 className="text-xl font-semibold mb-1">Relationship Goal</h3>
@@ -134,7 +134,7 @@ const FriendDetail = () => {
               </button>
             </div>
 
-            {/* Quick Check-In */}
+            
             <div className="bg-white rounded-3xl p-8 shadow-sm">
               <h3 className="text-xl font-semibold mb-8">Quick Check-In</h3>
               
@@ -169,7 +169,7 @@ const FriendDetail = () => {
         </div>
       </div>
 
-      {/* Toast Notification */}
+      
       {toast && <Toast message={toast} />}
     </div>
   );

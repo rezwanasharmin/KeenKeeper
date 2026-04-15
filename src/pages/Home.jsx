@@ -12,13 +12,13 @@ const Home = () => {
     setTimeout(() => {
       setFriends(friendsData);
       setLoading(false);
-    }, 800); // Simulated loading
+    }, 800); 
   }, []);
 
   const totalFriends = friends.length;
   const onTrack = friends.filter(f => f.status === 'on-track').length;
   const needAttention = friends.filter(f => f.status === 'overdue').length;
-  const interactionsThisMonth = 42; // Static for demo
+  const interactionsThisMonth = 42; 
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
@@ -35,27 +35,27 @@ const Home = () => {
         </button>
       </div>
 
-      {/* Summary Cards */}
+      
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
         <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
           <div className="text-5xl font-semibold text-[#244D3F]">{totalFriends}</div>
-          <p className="text-gray-600 mt-2">Total Friends</p>
+          <p className="text-gray-700 mt-2">Total Friends</p>
         </div>
         <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
           <div className="text-5xl font-semibold text-[#244D3F]">{onTrack}</div>
-          <p className="text-gray-600 mt-2">On Track</p>
+          <p className="text-gray-700 mt-2">On Track</p>
         </div>
         <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
           <div className="text-5xl font-semibold text-[#244D3F]">{needAttention}</div>
-          <p className="text-gray-600 mt-2">Need Attention</p>
+          <p className="text-gray-700 mt-2">Need Attention</p>
         </div>
         <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
           <div className="text-5xl font-semibold text-[#244D3F]">{interactionsThisMonth}</div>
-          <p className="text-gray-600 mt-2">Interactions This Month</p>
+          <p className="text-gray-700 mt-2">Interactions This Month</p>
         </div>
       </div>
 
-      {/* Your Friends Section */}
+      
       <h2 className="text-3xl font-semibold mb-8">Your Friends</h2>
 
       {loading ? (
