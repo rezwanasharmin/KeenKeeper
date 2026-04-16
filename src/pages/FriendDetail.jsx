@@ -19,27 +19,27 @@ const FriendDetail = () => {
 
   useEffect(() => {
     if (!friend) {
-      navigate('/404'); 
+      navigate('/404');
     }
   }, [friend, navigate]);
 
-  
+
   const handleQuickCheckIn = (type) => {
     if (!friend) return;
 
-    
+
     addInteraction(type, friend.name);
 
-    
+
     setToast(`${type} logged successfully with ${friend.name}`);
 
-    
+
     setTimeout(() => {
       setToast(null);
     }, 3000);
   };
 
-  
+
   if (!friend) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -51,7 +51,7 @@ const FriendDetail = () => {
     );
   }
 
-  
+
   const getStatusColor = (status) => {
     if (status === 'overdue') return 'bg-red-500';
     if (status === 'almost due') return 'bg-amber-500';
@@ -63,18 +63,18 @@ const FriendDetail = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-          
+
           <div className="lg:col-span-4 space-y-6">
 
-            
+
             <div className="bg-white rounded-3xl p-5 shadow-sm text-center">
-              <img 
-                src={friend.picture} 
+              <img
+                src={friend.picture}
                 alt={friend.name}
                 className="w-40 h-40 rounded-full mx-auto mb-6 border-8 border-white shadow-md object-cover"
               />
               <h2 className="text-3xl font-semibold text-gray-900 mb-2">{friend.name}</h2>
-              
+
               <div className="flex justify-center gap-3 mb-6">
                 <span className={`${getStatusColor(friend.status)} text-white text-sm font-medium px-6 py-1.5 rounded-full`}>
                   {friend.status.toUpperCase().replace('-', ' ')}
@@ -85,27 +85,51 @@ const FriendDetail = () => {
               <p className="text-gray-500 text-sm">{friend.email}</p>
             </div>
 
-            
-            <div className="bg-white rounded-3xl p-2 shadow-sm ">
-              <button className="w-full flex items-center gap-4 px-6 py-3 text-left hover:bg-gray-50 rounded-2xl transition-colors">
-                <Bell size={22} className="text-gray-500" />
-                <span className="font-medium text-gray-700">Snooze 2 Weeks</span>
-              </button>
-              <button className="w-full flex items-center gap-4 px-6 py-5 text-left hover:bg-gray-50 rounded-2xl transition-colors">
-                <Archive size={22} className="text-gray-500" />
-                <span className="font-medium text-gray-700">Archive</span>
-              </button>
-              <button className="w-full flex items-center gap-4 px-6 py-5 text-red-600 hover:bg-red-50 rounded-2xl transition-colors">
-                <Trash2 size={22} />
-                <span className="font-medium">Delete</span>
-              </button>
+
+            <div className="lg:col-span-4 space-y-5">
+
+              <div className="space-y-3">
+                {/* Snooze 2 Weeks */}
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
+                  <button className="w-full flex items-center gap-4 text-left">
+                    <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Bell size={24} className="text-gray-600" />
+                    </div>
+                    <span className="font-medium text-gray-800 text-lg">Snooze 2 Weeks</span>
+                  </button>
+                </div>
+
+                {/* Archive */}
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
+                  <button className="w-full flex items-center gap-4 text-left">
+                    <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Archive size={24} className="text-gray-600" />
+                    </div>
+                    <span className="font-medium text-gray-800 text-lg">Archive</span>
+                  </button>
+                </div>
+
+                {/* Delete */}
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
+                  <button className="w-full flex items-center gap-4 text-left text-red-600">
+                    <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Trash2 size={24} className="text-red-500" />
+                    </div>
+                    <span className="font-medium text-lg">Delete</span>
+                  </button>
+                </div>
+              </div>
+
             </div>
+
+
+
           </div>
 
-          
+
           <div className="lg:col-span-8 space-y-8">
 
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="bg-white rounded-3xl p-8 text-center shadow-sm">
                 <div className="text-4xl font-semibold text-gray-900">{friend.days_since_contact}</div>
@@ -121,7 +145,7 @@ const FriendDetail = () => {
               </div>
             </div>
 
-            
+
             <div className="bg-white rounded-3xl p-8 shadow-sm flex justify-between items-center">
               <div>
                 <h3 className="text-xl font-semibold mb-1">Relationship Goal</h3>
@@ -134,12 +158,12 @@ const FriendDetail = () => {
               </button>
             </div>
 
-            
+
             <div className="bg-white rounded-3xl p-8 shadow-sm">
               <h3 className="text-xl font-semibold mb-8">Quick Check-In</h3>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <button 
+                <button
                   onClick={() => handleQuickCheckIn('Call')}
                   className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
                 >
@@ -147,7 +171,7 @@ const FriendDetail = () => {
                   <span className="font-semibold text-lg">Call</span>
                 </button>
 
-                <button 
+                <button
                   onClick={() => handleQuickCheckIn('Text')}
                   className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
                 >
@@ -155,7 +179,7 @@ const FriendDetail = () => {
                   <span className="font-semibold text-lg">Text</span>
                 </button>
 
-                <button 
+                <button
                   onClick={() => handleQuickCheckIn('Video')}
                   className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
                 >
@@ -169,7 +193,7 @@ const FriendDetail = () => {
         </div>
       </div>
 
-      
+
       {toast && <Toast message={toast} />}
     </div>
   );
