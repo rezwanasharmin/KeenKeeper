@@ -92,7 +92,7 @@ const FriendDetail = () => {
                 {/* Snooze 2 Weeks */}
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
                   <button className="w-full flex items-center gap-4 text-left">
-                    <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
                       <Bell size={24} className="text-gray-600" />
                     </div>
                     <span className="font-medium text-gray-800 text-lg">Snooze 2 Weeks</span>
@@ -102,7 +102,7 @@ const FriendDetail = () => {
                 {/* Archive */}
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
                   <button className="w-full flex items-center gap-4 text-left">
-                    <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
                       <Archive size={24} className="text-gray-600" />
                     </div>
                     <span className="font-medium text-gray-800 text-lg">Archive</span>
@@ -112,7 +112,7 @@ const FriendDetail = () => {
                 {/* Delete */}
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
                   <button className="w-full flex items-center gap-4 text-left text-red-600">
-                    <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center shrink-0">
                       <Trash2 size={24} className="text-red-500" />
                     </div>
                     <span className="font-medium text-lg">Delete</span>
