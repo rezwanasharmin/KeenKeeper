@@ -44,8 +44,8 @@ const FriendDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-emerald-200 border-t-emerald-600 rounded-full animate-spin mx-auto"></div>
-          <p className="mt-6 text-gray-500">Loading friend details...</p>
+          <div className="w-12 h-12 border-4 border-emerald-200 border-t-emerald-700 rounded-full animate-spin mx-auto"></div>
+          <p className="mt-6 text-gray-600">Loading friend details...</p>
         </div>
       </div>
     );
