@@ -99,7 +99,7 @@ const Navbar = () => {
                 Home
               </NavLink>
 
-              {/* Timeline */}
+              
               <NavLink
                 to="/timeline"
                 onClick={() => setIsMenuOpen(false)}
@@ -115,7 +115,7 @@ const Navbar = () => {
                 Timeline
               </NavLink>
 
-              {/* Stats */}
+              
               <NavLink
                 to="/stats"
                 onClick={() => setIsMenuOpen(false)}
