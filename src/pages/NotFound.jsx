@@ -19,7 +19,7 @@ const NotFound = () => {
 
         <button
           onClick={() => navigate('/')}
-          className="bg-emerald-700 hover:bg-emerald-800 text-white px-10 py-4 rounded-2xl flex items-center gap-3 mx-auto transition-colors"
+          className="bg-[#244D3F] hover:bg-emerald-800 text-white px-10 py-4 rounded-2xl flex items-center gap-3 mx-auto transition-colors"
         >
           <Home size={22} />
           Back to Home

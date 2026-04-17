@@ -11,13 +11,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="h-16 flex items-center justify-between">
           
-          {/* Logo */}
+          
           <div className="text-2xl font-bold "><img src={logo} alt="" /></div>
 
-          
           <div className="hidden md:flex items-center gap-8">
             
-            {/* Home */}
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -72,7 +70,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        
         {isMenuOpen && (
           <div className="md:hidden border-t bg-white py-6 px-4">
             <div className="flex items-center justify-between mb-8">

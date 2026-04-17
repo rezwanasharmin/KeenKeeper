@@ -9,16 +9,16 @@ const Footer = () => {
     <footer className="bg-[#244D3F] text-white py-16">
       <div className="max-w-5xl mx-auto px-6 text-center">
         
-        {/* Logo */}
+        
         <h2 className="text-5xl font-bold tracking-tight mb-4">KeenKeeper</h2>
 
-        {/* Tagline */}
+        
         <p className="text-white  mx-auto mb-12 text-lg">
           Your personal shelf of meaningful connections. 
           Browse, tend, and nurture the relationships that matter most.
         </p>
 
-        {/* Social Links */}
+        
         <div className="mb-16">
           <p className="text-white text-sm  tracking-widest mb-5">Social Links</p>
           
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
+        
         <div className="pt-8 border-t border-emerald-800 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white">
           <div>© 2026 KeenKeeper. All rights reserved.</div>
           

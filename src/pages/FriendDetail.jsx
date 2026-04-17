@@ -89,7 +89,7 @@ const FriendDetail = () => {
             <div className="lg:col-span-4 space-y-5">
 
               <div className="space-y-3">
-                {/* Snooze 2 Weeks */}
+                
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
                   <button className="w-full flex items-center gap-4 text-left">
                     <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
@@ -99,7 +99,7 @@ const FriendDetail = () => {
                   </button>
                 </div>
 
-                {/* Archive */}
+               
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
                   <button className="w-full flex items-center gap-4 text-left">
                     <div className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
@@ -109,7 +109,7 @@ const FriendDetail = () => {
                   </button>
                 </div>
 
-                {/* Delete */}
+                
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow transition-all cursor-pointer">
                   <button className="w-full flex items-center gap-4 text-left text-red-600">
                     <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center shrink-0">

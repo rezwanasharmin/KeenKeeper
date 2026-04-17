@@ -24,10 +24,10 @@ const Timeline = () => {
         <select 
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="bg-white border border-gray-200 rounded-2xl px-5 py-3"
+          className="bg-white border cursor-pointer border-gray-200 rounded-xl px-5 py-3"
         >
-          <option value="all">All Interactions</option>
-          <option value="call">Call</option>
+          <option  value="all">All Interactions</option>
+          <option  value="call">Call</option>
           <option value="text">Text</option>
           <option value="video">Video</option>
         </select>
