@@ -165,25 +165,25 @@ const FriendDetail = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <button
                   onClick={() => handleQuickCheckIn('Call')}
-                  className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
+                  className="flex flex-col items-center gap-4 py-10 cursor-pointer bg-gray-50 hover:bg-emerald-50 rounded-xl transition-all active:scale-95"
                 >
-                  <Phone size={42} className="text-emerald-600" />
+                  <Phone size={42} className="text-[#244D3F]" />
                   <span className="font-semibold text-lg">Call</span>
                 </button>
 
                 <button
                   onClick={() => handleQuickCheckIn('Text')}
-                  className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
+                  className="flex flex-col items-center gap-4 py-10 cursor-pointer bg-gray-50 hover:bg-emerald-50 rounded-xl transition-all active:scale-95"
                 >
-                  <MessageSquare size={42} className="text-emerald-600" />
+                  <MessageSquare size={42} className="text-[#244D3F]" />
                   <span className="font-semibold text-lg">Text</span>
                 </button>
 
                 <button
                   onClick={() => handleQuickCheckIn('Video')}
-                  className="flex flex-col items-center gap-4 py-12 bg-gray-50 hover:bg-emerald-50 rounded-3xl transition-all active:scale-95"
+                  className="flex flex-col items-center gap-4 py-10 cursor-pointer bg-gray-50 hover:bg-emerald-50 rounded-xl transition-all active:scale-95"
                 >
-                  <Video size={42} className="text-emerald-600" />
+                  <Video size={42} className="text-[#244D3F]" />
                   <span className="font-semibold text-lg">Video</span>
                 </button>
               </div>
